@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.jobs_ui">
    <application
-        android:label="jobs_ui"
+        android:label="Bufe Work"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
