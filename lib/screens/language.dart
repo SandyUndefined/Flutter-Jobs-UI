@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:jobs_ui/screens/account.dart';
 import 'package:jobs_ui/screens/login.dart';
+import 'package:jobs_ui/utlis/colors.dart';
+import 'package:jobs_ui/widgets/button.dart';
 
 class Language extends StatefulWidget {
   const Language({Key? key}) : super(key: key);
@@ -18,24 +20,41 @@ class _LanguageState extends State<Language> {
     var blockSizeVertical = (screenheight / 100);
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: Colors.blueGrey,
+      backgroundColor: colorBackground,
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return const Account();
-                      },
+        child: Container(
+          padding:
+              EdgeInsets.only(left: screenwidth / 8, right: screenwidth / 8),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ButtonWidget(
+                  style: ButtonStyle(
+                    foregroundColor:
+                        MaterialStateProperty.all<Color>(Colors.white),
+                    backgroundColor:
+                        MaterialStateProperty.all<Color>(Colors.purple),
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12.0),
+                      ),
                     ),
-                  );
-                },
-                child: const Text("English")),
-            ElevatedButton(onPressed: () {}, child: const Text("Hindi")),
-          ],
+                  ),
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return const Account();
+                        },
+                      ),
+                    );
+                  },
+                  child: const Text("English")),
+              SizedBox(height: screenheight * .04),
+              ButtonWidget(onPressed: () {}, child: const Text("Hindi"))
+            ],
+          ),
         ),
       ),
     );

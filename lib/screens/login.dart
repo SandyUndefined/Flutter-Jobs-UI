@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jobs_ui/screens/otp.dart';
+import 'package:jobs_ui/utlis/colors.dart';
+import 'package:jobs_ui/widgets/button.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -16,27 +18,24 @@ class _LoginState extends State<Login> {
     var blockSizeHorizontal = (screenwidth / 100);
     var blockSizeVertical = (screenheight / 100);
     return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: colorBackground,
+        leading: InkWell(
+          onTap: () => Navigator.pop(context),
+          child: Padding(
+            padding: const EdgeInsets.all(18.0),
+            child: Image.asset("assets/images/back.png"),
+          ),
+        ),
+      ),
       resizeToAvoidBottomInset: false,
-      backgroundColor: const Color(0xfff7f6fb),
+      backgroundColor: colorBackground,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 32),
           child: Column(
             children: [
-              Align(
-                alignment: Alignment.topLeft,
-                child: GestureDetector(
-                  onTap: () => Navigator.pop(context),
-                  child: const Icon(
-                    Icons.arrow_back,
-                    size: 32,
-                    color: Colors.black54,
-                  ),
-                ),
-              ),
-              const SizedBox(
-                height: 18,
-              ),
               Container(
                 width: 200,
                 height: 200,
@@ -97,7 +96,7 @@ class _LoginState extends State<Login> {
                         prefix: const Padding(
                           padding: EdgeInsets.symmetric(horizontal: 8),
                           child: Text(
-                            '(+62)',
+                            '(+91)',
                             style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
@@ -116,7 +115,7 @@ class _LoginState extends State<Login> {
                     ),
                     SizedBox(
                       width: double.infinity,
-                      child: ElevatedButton(
+                      child: ButtonWidget(
                         onPressed: () {
                           Navigator.of(context).push(
                             MaterialPageRoute(
@@ -131,7 +130,7 @@ class _LoginState extends State<Login> {
                           shape:
                               MaterialStateProperty.all<RoundedRectangleBorder>(
                             RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(24.0),
+                              borderRadius: BorderRadius.circular(12.0),
                             ),
                           ),
                         ),

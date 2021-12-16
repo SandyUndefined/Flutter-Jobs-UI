@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jobs_ui/utlis/colors.dart';
 
 class OTP extends StatefulWidget {
   const OTP({Key? key}) : super(key: key);
@@ -10,31 +11,33 @@ class OTP extends StatefulWidget {
 class _OTPState extends State<OTP> {
   @override
   Widget build(BuildContext context) {
+    var screenwidth = MediaQuery.of(context).size.width;
+    var screenheight = MediaQuery.of(context).size.height;
+    var blockSizeHorizontal = (screenwidth / 100);
+    var blockSizeVertical = (screenheight / 100);
     return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: colorBackground,
+        leading: InkWell(
+          onTap: () => Navigator.pop(context),
+          child: Padding(
+            padding: const EdgeInsets.all(18.0),
+            child: Image.asset("assets/images/back.png"),
+          ),
+        ),
+      ),
       resizeToAvoidBottomInset: false,
-      backgroundColor: const Color(0xfff7f6fb),
+      backgroundColor: colorBackground,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 32),
+          padding: EdgeInsets.symmetric(
+              vertical: blockSizeVertical, horizontal: screenwidth / 12),
           child: Column(
             children: [
-              Align(
-                alignment: Alignment.topLeft,
-                child: GestureDetector(
-                  onTap: () => Navigator.pop(context),
-                  child: const Icon(
-                    Icons.arrow_back,
-                    size: 32,
-                    color: Colors.black54,
-                  ),
-                ),
-              ),
-              const SizedBox(
-                height: 18,
-              ),
               Container(
-                width: 200,
-                height: 200,
+                width: screenwidth,
+                height: screenwidth / 1.8,
                 decoration: BoxDecoration(
                   color: Colors.deepPurple.shade50,
                   shape: BoxShape.circle,
@@ -43,8 +46,8 @@ class _OTPState extends State<OTP> {
                   'assets/images/illustration-3.png',
                 ),
               ),
-              const SizedBox(
-                height: 24,
+              SizedBox(
+                height: screenheight * .03,
               ),
               const Text(
                 'Verification',
@@ -53,8 +56,8 @@ class _OTPState extends State<OTP> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              const SizedBox(
-                height: 10,
+              SizedBox(
+                height: screenheight * .01,
               ),
               const Text(
                 "Enter your OTP code number",
@@ -65,11 +68,11 @@ class _OTPState extends State<OTP> {
                 ),
                 textAlign: TextAlign.center,
               ),
-              const SizedBox(
-                height: 28,
+              SizedBox(
+                height: screenheight * .03,
               ),
               Container(
-                padding: const EdgeInsets.all(28),
+                padding: EdgeInsets.all(screenheight * .04),
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(12),
@@ -85,8 +88,8 @@ class _OTPState extends State<OTP> {
                         _textFieldOTP(first: false, last: true),
                       ],
                     ),
-                    const SizedBox(
-                      height: 22,
+                    SizedBox(
+                      height: screenheight * .04,
                     ),
                     SizedBox(
                       width: double.infinity,
@@ -100,7 +103,7 @@ class _OTPState extends State<OTP> {
                           shape:
                               MaterialStateProperty.all<RoundedRectangleBorder>(
                             RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(24.0),
+                              borderRadius: BorderRadius.circular(12.0),
                             ),
                           ),
                         ),
@@ -149,7 +152,7 @@ class _OTPState extends State<OTP> {
 
   Widget _textFieldOTP({required bool first, last}) {
     return Container(
-      height: 85,
+      height: 55,
       child: AspectRatio(
         aspectRatio: 1.0,
         child: TextField(
@@ -165,7 +168,7 @@ class _OTPState extends State<OTP> {
           showCursor: false,
           readOnly: false,
           textAlign: TextAlign.center,
-          style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           keyboardType: TextInputType.number,
           maxLength: 1,
           decoration: InputDecoration(
