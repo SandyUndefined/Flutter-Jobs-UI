@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jobs_ui/screens/selector.dart';
 import 'package:jobs_ui/utlis/colors.dart';
 
 class OTP extends StatefulWidget {
@@ -94,7 +95,12 @@ class _OTPState extends State<OTP> {
                     SizedBox(
                       width: double.infinity,
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                                builder: (context) => const Select()),
+                          );
+                        },
                         style: ButtonStyle(
                           foregroundColor:
                               MaterialStateProperty.all<Color>(Colors.white),
