@@ -29,7 +29,39 @@ class _LanguageState extends State<Language> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              ButtonWidget(
+              SizedBox(
+                height: screenheight * .06,
+                width: screenwidth * .5,
+                child: ButtonWidget(
+                    style: ButtonStyle(
+                      foregroundColor:
+                          MaterialStateProperty.all<Color>(Colors.white),
+                      backgroundColor:
+                          MaterialStateProperty.all<Color>(Colors.purple),
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12.0),
+                        ),
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return const Account();
+                          },
+                        ),
+                      );
+                    },
+                    child: const Text("English")),
+              ),
+              SizedBox(height: screenheight * .04),
+              SizedBox(
+                height: screenheight * .06,
+                width: screenwidth * .5,
+                child: ButtonWidget(
+                  onPressed: () {},
+                  child: const Text("Hindi"),
                   style: ButtonStyle(
                     foregroundColor:
                         MaterialStateProperty.all<Color>(Colors.white),
@@ -41,18 +73,8 @@ class _LanguageState extends State<Language> {
                       ),
                     ),
                   ),
-                  onPressed: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) {
-                          return const Account();
-                        },
-                      ),
-                    );
-                  },
-                  child: const Text("English")),
-              SizedBox(height: screenheight * .04),
-              ButtonWidget(onPressed: () {}, child: const Text("Hindi"))
+                ),
+              )
             ],
           ),
         ),

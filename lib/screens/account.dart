@@ -39,27 +39,49 @@ class _AccountState extends State<Account> {
                     fontWeight: FontWeight.w700),
               ),
               SizedBox(height: screenheight * .09),
-              ButtonWidget(onPressed: () {}, child: const Text("Register")),
-              SizedBox(height: screenheight * .04),
-              ButtonWidget(
-                onPressed: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return const Login();
-                      },
+              SizedBox(
+                height: screenheight * .06,
+                width: screenwidth * .5,
+                child: ButtonWidget(
+                  onPressed: () {},
+                  child: const Text("Register"),
+                  style: ButtonStyle(
+                    foregroundColor:
+                        MaterialStateProperty.all<Color>(Colors.white),
+                    backgroundColor:
+                        MaterialStateProperty.all<Color>(Colors.purple),
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12.0),
+                      ),
                     ),
-                  );
-                },
-                child: const Text("Login"),
-                style: ButtonStyle(
-                  foregroundColor:
-                      MaterialStateProperty.all<Color>(Colors.white),
-                  backgroundColor:
-                      MaterialStateProperty.all<Color>(Colors.purple),
-                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                    RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12.0),
+                  ),
+                ),
+              ),
+              SizedBox(height: screenheight * .04),
+              SizedBox(
+                height: screenheight * .06,
+                width: screenwidth * .5,
+                child: ButtonWidget(
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return const Login();
+                        },
+                      ),
+                    );
+                  },
+                  child: const Text("Login"),
+                  style: ButtonStyle(
+                    foregroundColor:
+                        MaterialStateProperty.all<Color>(Colors.white),
+                    backgroundColor:
+                        MaterialStateProperty.all<Color>(Colors.purple),
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12.0),
+                      ),
                     ),
                   ),
                 ),
