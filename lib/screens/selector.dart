@@ -27,7 +27,7 @@ class _SelectState extends State<Select> {
           children: [
             Image.asset("assets/images/selector.png"),
             SizedBox(
-              height: screenheight * .02,
+              height: screenheight * .04,
             ),
             // Employer
             SizedBox(
