@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
-import 'package:jobs_ui/screens/login.dart';
+import 'package:jobs_ui/controller/item_view.dart';
+import 'package:jobs_ui/data/response.dart';
 import 'package:jobs_ui/utlis/colors.dart';
-import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 
 class Employee extends StatefulWidget {
   final zoomController;
@@ -13,9 +13,18 @@ class Employee extends StatefulWidget {
   _EmployeeState createState() => _EmployeeState();
 }
 
+final PostPoneViewModel _postPoneVM = PostPoneViewModel();
+List<PostPoneResponse>? postPoneItems;
+
 class _EmployeeState extends State<Employee> {
   final _advancedDrawerController = AdvancedDrawerController();
   int counter = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    postPoneItems = _postPoneVM.getPostPone();
+  }
 
   void _incrementCounter() {
     setState(() {
@@ -26,31 +35,34 @@ class _EmployeeState extends State<Employee> {
   int _currentIndex = 0;
   final List<Widget> _widgetList = [
     // My Work
-    const Text('Page One'),
-    // ListView.builder(
-    //   itemCount: postPoneItems.length,
-    //   itemBuilder: (context, index) {
-    //     var postPone = postPoneItems[index];
-    //     return new Card(
-    //         color: Theme.of(context).cardColor,
-    //         //RoundedRectangleBorder, BeveledRectangleBorder, StadiumBorder
-    //         shape: RoundedRectangleBorder(
-    //           borderRadius: BorderRadius.vertical(
-    //               bottom: Radius.circular(10.0), top: Radius.circular(2.0)),
-    //         ),
-    //         child: new ItemView(
-    //             postPone.refNo.toString(),
-    //             postPone.codAmount.toString(),
-    //             postPone.endCustomer,
-    //             postPone.brand,
-    //             postPone.contactNo,
-    //             postPone.fullAddress,
-    //             postPone.model,
-    //             postPone.assignTime,
-    //             postPone.postponedReason,
-    //             postPone.description));
-    //   },
-    // ),
+
+    // const Text('Page One'),
+    ListView.builder(
+      itemCount: postPoneItems?.length,
+      itemBuilder: (context, index) {
+        var postPone = postPoneItems![index];
+        return Card(
+          color: Theme.of(context).cardColor,
+          //RoundedRectangleBorder, BeveledRectangleBorder, StadiumBorder
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(
+                bottom: Radius.circular(10.0), top: Radius.circular(2.0)),
+          ),
+          child: ItemView(
+              postPone.refNo.toString(),
+              postPone.codAmount.toString(),
+              postPone.endCustomer,
+              postPone.brand,
+              postPone.contactNo,
+              postPone.fullAddress,
+              postPone.model,
+              postPone.assignTime,
+              postPone.postponedReason,
+              postPone.description),
+        );
+      },
+    ),
+
     const Text('Page Two'),
     const Text('Page Three'),
     const Text('Page Four'),
@@ -316,4 +328,25 @@ class _EmployeeState extends State<Employee> {
     // _advancedDrawerController.value = AdvancedDrawerValue.visible();
     _advancedDrawerController.showDrawer();
   }
+}
+
+class PostPoneViewModel {
+  List<PostPoneResponse>? postPoneItems;
+  PostPoneViewModel({this.postPoneItems});
+  getPostPone() => <PostPoneResponse>[
+        PostPoneResponse(
+            description: 'Pickup',
+            refNo: 123456.00,
+            id: 1.00,
+            lonerPhone: '1',
+            assignTime: '20-02-2019 10:51PM',
+            postponeTime: '24-02-2019 10:51PM',
+            postponedReason: 'Outside',
+            contactNo: '0000000000',
+            endCustomer: 'Kamlesh',
+            fullAddress: 'Address',
+            brand: 'MI',
+            model: 'A2',
+            codAmount: 1200.00)
+      ];
 }
