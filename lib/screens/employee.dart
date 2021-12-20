@@ -25,7 +25,32 @@ class _EmployeeState extends State<Employee> {
 
   int _currentIndex = 0;
   final List<Widget> _widgetList = [
-    const Text("data"),
+    // My Work
+    const Text('Page One'),
+    // ListView.builder(
+    //   itemCount: postPoneItems.length,
+    //   itemBuilder: (context, index) {
+    //     var postPone = postPoneItems[index];
+    //     return new Card(
+    //         color: Theme.of(context).cardColor,
+    //         //RoundedRectangleBorder, BeveledRectangleBorder, StadiumBorder
+    //         shape: RoundedRectangleBorder(
+    //           borderRadius: BorderRadius.vertical(
+    //               bottom: Radius.circular(10.0), top: Radius.circular(2.0)),
+    //         ),
+    //         child: new ItemView(
+    //             postPone.refNo.toString(),
+    //             postPone.codAmount.toString(),
+    //             postPone.endCustomer,
+    //             postPone.brand,
+    //             postPone.contactNo,
+    //             postPone.fullAddress,
+    //             postPone.model,
+    //             postPone.assignTime,
+    //             postPone.postponedReason,
+    //             postPone.description));
+    //   },
+    // ),
     const Text('Page Two'),
     const Text('Page Three'),
     const Text('Page Four'),
@@ -41,7 +66,7 @@ class _EmployeeState extends State<Employee> {
   @override
   Widget build(BuildContext context) {
     return AdvancedDrawer(
-      backdropColor: const Color(0xffA7ACD9),
+      backdropColor: const Color(0xffE7DDDC),
       controller: _advancedDrawerController,
       animationCurve: Curves.easeInOut,
       animationDuration: const Duration(milliseconds: 300),
@@ -171,43 +196,106 @@ class _EmployeeState extends State<Employee> {
                 ),
                 ListTile(
                   onTap: () {},
-                  leading: const Icon(Icons.home),
-                  title: const Text('Profile'),
+                  leading: Image.asset(
+                    "assets/images/profile.png",
+                    width: 30,
+                    height: 30,
+                  ),
+                  title: const Text('Profile',
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          color: colorSecondaryText)),
                 ),
                 ListTile(
                   onTap: () {},
-                  leading: const Icon(Icons.account_circle_rounded),
-                  title: const Text('Group'),
+                  leading: Image.asset(
+                    "assets/images/group.png",
+                    width: 30,
+                    height: 30,
+                  ),
+                  title: const Text(
+                    'Group',
+                    style: TextStyle(
+                        fontWeight: FontWeight.w500, color: colorSecondaryText),
+                  ),
                 ),
                 ListTile(
                   onTap: () {},
-                  leading: const Icon(Icons.favorite),
-                  title: const Text('Passbook'),
+                  leading: Image.asset(
+                    "assets/images/passbook.png",
+                    width: 30,
+                    height: 30,
+                  ),
+                  title: const Text(
+                    'Passbook',
+                    style: TextStyle(
+                        fontWeight: FontWeight.w500, color: colorSecondaryText),
+                  ),
                 ),
                 ListTile(
                   onTap: () {},
-                  leading: const Icon(Icons.settings),
-                  title: const Text('Invite'),
+                  leading: Image.asset(
+                    "assets/images/invite.png",
+                    width: 30,
+                    height: 30,
+                  ),
+                  title: const Text(
+                    'Invite',
+                    style: TextStyle(
+                        fontWeight: FontWeight.w500, color: colorSecondaryText),
+                  ),
                 ),
                 ListTile(
                   onTap: () {},
-                  leading: const Icon(Icons.settings),
-                  title: const Text('Help'),
+                  leading: Image.asset(
+                    "assets/images/help.png",
+                    width: 30,
+                    height: 30,
+                  ),
+                  title: const Text(
+                    'Help',
+                    style: TextStyle(
+                        fontWeight: FontWeight.w500, color: colorSecondaryText),
+                  ),
                 ),
                 ListTile(
                   onTap: () {},
-                  leading: const Icon(Icons.settings),
-                  title: const Text('Feedback'),
+                  leading: Image.asset(
+                    "assets/images/feedback.png",
+                    width: 30,
+                    height: 30,
+                  ),
+                  title: const Text(
+                    'Feedback',
+                    style: TextStyle(
+                        fontWeight: FontWeight.w500, color: colorSecondaryText),
+                  ),
                 ),
                 ListTile(
                   onTap: () {},
-                  leading: const Icon(Icons.settings),
-                  title: const Text('Settings'),
+                  leading: Image.asset(
+                    "assets/images/settings.png",
+                    width: 30,
+                    height: 30,
+                  ),
+                  title: const Text(
+                    'Settings',
+                    style: TextStyle(
+                        fontWeight: FontWeight.w500, color: colorSecondaryText),
+                  ),
                 ),
                 ListTile(
                   onTap: () {},
-                  leading: const Icon(Icons.settings),
-                  title: const Text('About Us'),
+                  leading: Image.asset(
+                    "assets/images/about.png",
+                    width: 30,
+                    height: 30,
+                  ),
+                  title: const Text(
+                    'About Us',
+                    style: TextStyle(
+                        fontWeight: FontWeight.w500, color: colorSecondaryText),
+                  ),
                 ),
               ],
             ),
