@@ -104,8 +104,8 @@ class _OTPState extends State<OTP> {
                         style: ButtonStyle(
                           foregroundColor:
                               MaterialStateProperty.all<Color>(Colors.white),
-                          backgroundColor:
-                              MaterialStateProperty.all<Color>(Colors.purple),
+                          backgroundColor: MaterialStateProperty.all<Color>(
+                              Colors.lightBlueAccent),
                           shape:
                               MaterialStateProperty.all<RoundedRectangleBorder>(
                             RoundedRectangleBorder(
@@ -183,7 +183,8 @@ class _OTPState extends State<OTP> {
                 borderSide: const BorderSide(width: 2, color: Colors.black12),
                 borderRadius: BorderRadius.circular(12)),
             focusedBorder: OutlineInputBorder(
-                borderSide: const BorderSide(width: 2, color: Colors.purple),
+                borderSide:
+                    const BorderSide(width: 2, color: Colors.lightBlueAccent),
                 borderRadius: BorderRadius.circular(12)),
           ),
         ),

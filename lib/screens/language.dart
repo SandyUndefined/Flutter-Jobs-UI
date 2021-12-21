@@ -36,8 +36,8 @@ class _LanguageState extends State<Language> {
                     style: ButtonStyle(
                       foregroundColor:
                           MaterialStateProperty.all<Color>(Colors.white),
-                      backgroundColor:
-                          MaterialStateProperty.all<Color>(Colors.purple),
+                      backgroundColor: MaterialStateProperty.all<Color>(
+                          Colors.lightBlueAccent),
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                         RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(12.0),
@@ -65,8 +65,8 @@ class _LanguageState extends State<Language> {
                   style: ButtonStyle(
                     foregroundColor:
                         MaterialStateProperty.all<Color>(Colors.white),
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(Colors.purple),
+                    backgroundColor: MaterialStateProperty.all<Color>(
+                        Colors.lightBlueAccent),
                     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                       RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12.0),

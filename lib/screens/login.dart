@@ -125,8 +125,8 @@ class _LoginState extends State<Login> {
                         style: ButtonStyle(
                           foregroundColor:
                               MaterialStateProperty.all<Color>(Colors.white),
-                          backgroundColor:
-                              MaterialStateProperty.all<Color>(Colors.purple),
+                          backgroundColor: MaterialStateProperty.all<Color>(
+                              Colors.lightBlueAccent),
                           shape:
                               MaterialStateProperty.all<RoundedRectangleBorder>(
                             RoundedRectangleBorder(
