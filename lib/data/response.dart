@@ -1,48 +1,24 @@
-class PostPoneResponse {
-  final String description;
-  final double refNo;
-  final double id;
-  final String lonerPhone;
-  final String assignTime;
-  final String postponeTime;
-  final String postponedReason;
-  final String contactNo;
-  final String endCustomer;
-  final String fullAddress;
-  final String brand;
-  final String model;
-  final double codAmount;
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
-  PostPoneResponse(
-      {required this.description,
-      required this.refNo,
-      required this.id,
-      required this.lonerPhone,
-      required this.assignTime,
-      required this.postponeTime,
-      required this.postponedReason,
-      required this.contactNo,
-      required this.endCustomer,
-      required this.fullAddress,
-      required this.brand,
-      required this.model,
-      required this.codAmount});
+import '../models/model.dart';
 
-  factory PostPoneResponse.fromJson(Map<String, dynamic> json) {
-    return PostPoneResponse(
-      description: json['DESCR'],
-      refNo: json['REFNO'],
-      id: json['ID'],
-      lonerPhone: json['LNRPHONE'],
-      assignTime: json['ASSIGNTIME'],
-      postponeTime: json['POSTPONTIME'],
-      postponedReason: json['POSTPONDRSN'],
-      contactNo: json['CONTACTNO'],
-      endCustomer: json['ENDCUST'],
-      fullAddress: json['FULLADDRESS'],
-      brand: json['BRAND'],
-      model: json['MODEL'],
-      codAmount: json['CODAMT'],
-    );
+const url = "http://dummy.restapiexample.com/";
+
+class GetEmployee {
+  getPath() {
+    return url + "api/v1/employees";
+  }
+
+  Future<List<Employees>> getEmployees() async {
+    final res = await http.get(getPath());
+
+    if (res.statusCode == 200) {
+      var json = jsonDecode(res.body);
+      List data = json['data'];
+      return data.map((employees) => Employees.fromJson(employees)).toList();
+    } else {
+      throw Exception('Failed to fetch data');
+    }
   }
 }
