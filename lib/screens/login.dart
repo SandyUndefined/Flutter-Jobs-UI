@@ -51,7 +51,7 @@ class _LoginState extends State<Login> {
                 height: 24,
               ),
               const Text(
-                'Registration',
+                'Login',
                 style: TextStyle(
                   fontSize: 22,
                   fontWeight: FontWeight.bold,

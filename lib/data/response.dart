@@ -3,11 +3,11 @@ import 'dart:convert';
 
 import '../models/model.dart';
 
-const url = "http://dummy.restapiexample.com/";
+String url = "http://dummy.restapiexample.com/";
 
 class GetEmployee {
   getPath() {
-    return url + "api/v1/employees";
+    return Uri.parse(url + "api/v1/employees");
   }
 
   Future<List<Employees>> getEmployees() async {
