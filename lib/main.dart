@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jobs_ui/screens/employee.dart';
 import 'package:jobs_ui/screens/language.dart';
-import 'package:jobs_ui/screens/login.dart';
-import 'package:jobs_ui/screens/registration.dart';
 
 void main() {
   runApp(const MyApp());
