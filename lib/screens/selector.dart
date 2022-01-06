@@ -38,7 +38,7 @@ class _SelectState extends State<Select> {
                   Navigator.of(context).push(
                     MaterialPageRoute(
                       builder: (context) {
-                        return const Agent();
+                        return const Employee();
                       },
                     ),
                   );
@@ -82,7 +82,7 @@ class _SelectState extends State<Select> {
                   Navigator.of(context).push(
                     MaterialPageRoute(
                       builder: (context) {
-                        return const Employer();
+                        return const Employee();
                       },
                     ),
                   );

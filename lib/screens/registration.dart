@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:jobs_ui/screens/selector.dart';
 import 'package:jobs_ui/utlis/colors.dart';
 import 'package:jobs_ui/utlis/constants.dart';
-import 'package:jobs_ui/widgets/password_field.dart';
 import 'package:jobs_ui/widgets/text_button.dart';
 import 'package:jobs_ui/widgets/text_field.dart';
 
@@ -22,7 +22,8 @@ class _RegisterState extends State<Register> {
     var blockSizeVertical = (screenheight / 100);
     return Scaffold(
       appBar: AppBar(
-        titleSpacing: blockSizeHorizontal * 40,
+        elevation: 0,
+        // titleSpacing: blockSizeHorizontal * 40,
         backgroundColor: colorBackground,
         title: const Text(
           "Register",
@@ -43,34 +44,46 @@ class _RegisterState extends State<Register> {
               hasScrollBody: false,
               child: Padding(
                 padding: const EdgeInsets.symmetric(
-                  horizontal: 20,
+                  horizontal: 40,
                 ),
                 child: Column(
                   children: [
                     Flexible(
                       child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          const MyTextField(
-                            hintText: 'Name',
+                          MyTextField(
+                            hintText: 'Name of the Company',
                             inputType: TextInputType.name,
                           ),
-                          const MyTextField(
-                            hintText: 'Email',
-                            inputType: TextInputType.emailAddress,
+                          MyTextField(
+                            hintText: 'Name of Person',
+                            inputType: TextInputType.name,
                           ),
-                          const MyTextField(
-                            hintText: 'Phone',
+                          MyTextField(
+                            hintText: 'Phone No.',
                             inputType: TextInputType.phone,
                           ),
-                          PasswordField(
-                            isPasswordVisible: passwordVisibility,
-                            onTap: () {
-                              setState(() {
-                                passwordVisibility = !passwordVisibility;
-                              });
-                            },
-                          )
+                          MyTextField(
+                            hintText: 'Email ID',
+                            inputType: TextInputType.emailAddress,
+                          ),
+                          MyTextField(
+                            hintText: 'PAN No.',
+                            inputType: TextInputType.name,
+                          ),
+                          MyTextField(
+                            hintText: 'GST No.',
+                            inputType: TextInputType.name,
+                          ),
+                          MyTextField(
+                            hintText: 'Office Address',
+                            inputType: TextInputType.text,
+                          ),
+                          MyTextField(
+                            hintText: 'Write About Yourself/Comapny',
+                            inputType: TextInputType.text,
+                          ),
                         ],
                       ),
                     ),
@@ -84,7 +97,7 @@ class _RegisterState extends State<Register> {
                         Text(
                           "Sign In",
                           style: kBodyText.copyWith(
-                            color: Colors.white,
+                            color: Colors.lightBlueAccent,
                           ),
                         ),
                       ],
@@ -94,10 +107,21 @@ class _RegisterState extends State<Register> {
                     ),
                     MyTextButton(
                       buttonName: 'Register',
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return const Select();
+                            },
+                          ),
+                        );
+                      },
                       bgColor: Colors.white,
                       textColor: Colors.black87,
-                    )
+                    ),
+                    const SizedBox(
+                      height: 40,
+                    ),
                   ],
                 ),
               ),

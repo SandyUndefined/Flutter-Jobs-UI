@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jobs_ui/screens/login.dart';
+import 'package:jobs_ui/screens/registration.dart';
 import 'package:jobs_ui/utlis/colors.dart';
 import 'package:jobs_ui/widgets/button.dart';
 
@@ -43,7 +44,15 @@ class _AccountState extends State<Account> {
                 height: screenheight * .06,
                 width: screenwidth * .5,
                 child: ButtonWidget(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return const Register();
+                        },
+                      ),
+                    );
+                  },
                   child: const Text("Register"),
                   style: ButtonStyle(
                     foregroundColor:
